@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include<stdlib.h>
+int a[10];
+int rear=0;
+int front=0;
+void insert()
+{
+    int ele;
+    if(rear==10)
+    {
+        printf("queue overflow");
+    }
+    else
+    {
+        int ele;
+        printf("enter the element to be inserted");
+        scanf("%d",&ele);
+        a[rear]=ele;
+        rear+=1;
+    }
+}
+void delete()
+{
+    if(rear==front)
+    {
+        printf("queue underflow");
+    }
+    else
+    {
+        printf("element to be deleted:\n%d",a[front]);
+        front+=1;
+    }
+}
+void display()
+{
+    int i;
+    if(front==rear)
+    printf("queue is empty");
+    else
+    {
+        for(i=front;i<rear;i++)
+        printf("%d",a[i]);
+    }
+}
+void main()
+{
+    int choice,n;
+    printf("enter n value");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++)
+    {
+    printf("1-insert 2-delete 3-display");
+    scanf("%d",&choice);
+    if(choice==1)
+      insert();
+    else if(choice==2)
+      delete();
+    }
+     display();
+}
